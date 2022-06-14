@@ -1,0 +1,31 @@
+apply from: "$rootDir/gradle/build-java-module.gradle"
+
+dependencies {
+    implementation project(':backend')
+    implementation project(':frontend')
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
+}
+
+apply plugin: 'application'
+apply plugin: 'org.springframework.boot'
+
+bootJar {
+    mainClass = 'mogvar.Application'
+    dependsOn(jar)
+}
+
+bootRun {
+    systemProperties = System.properties
+}
+
+task copyWebApp(type: Copy, dependsOn: ':frontend:build') {
+    from "$rootDir/frontend/build"
+    into "$rootDir/application/build/classes/main/static/."
+    exclude 'libs**'
+    exclude 'tmp**'
+}
+
+jar {
+    dependsOn(copyWebApp)
+}

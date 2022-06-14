@@ -1,0 +1,20 @@
+idea {
+    module {
+        outputDir file('build/classes/main')
+        testOutputDir file('build/classes/test')
+    }
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = 'build/classes/main'
+    }
+    test {
+        output.resourcesDir = 'build/classes/test'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+

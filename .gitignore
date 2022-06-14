@@ -1,0 +1,26 @@
+**/.classpath
+**/bin
+.project
+.settings/
+.gradle
+build/
+classes/
+.idea/
+logs/
+out/
+**/.sass-cache/*
+**/.DS_Store
+**/*.log
+web/npm-debug.log*
+
+**/node_modules/
+**/build
+**/surefire-reports/
+
+**/*.iml
+
+# Ignore Gradle GUI config
+gradle-app.setting
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar

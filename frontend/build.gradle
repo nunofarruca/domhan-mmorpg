@@ -1,0 +1,30 @@
+plugins {
+  id "com.github.node-gradle.node" version "3.3.0"
+}
+
+apply plugin: "com.github.node-gradle.node"
+
+node {
+  version = '16.15.1'
+  download = true
+  workDir = file("${rootProject.buildDir}/nodejs")
+  distBaseUrl = 'https://nodejs.org/dist'
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+task "npm-install"(type: NpmTask) {
+  workingDir = file("${project.projectDir}")
+  args = ['install']
+}
+
+task npmBuild(type: NpmTask, dependsOn: 'npm-install') {
+  workingDir = file("${project.projectDir}")
+  args = ['run', 'build']
+}
+
+task copyDist(type: Copy, dependsOn: 'npmBuild') {
+  from "${project.projectDir}/dist"
+  into "${project.buildDir}/."
+}
+
+jar.dependsOn(copyDist)

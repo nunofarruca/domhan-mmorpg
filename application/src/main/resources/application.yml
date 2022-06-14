@@ -1,0 +1,41 @@
+#server settings
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,application/hal+json,application/xml,text/html,text/xml,text/plain,text/css,application/javascript,image/svg+xml
+  forward-headers-strategy: native
+  error:
+    include-stacktrace: never
+
+#service connections
+example-service:
+  url: 'http://app.example-service'
+  username: 'username'
+  password: 'password'
+
+#default logging configuration
+logging:
+  #  file.name: ./logs/mogvar.log
+  pattern:
+    console: "%d{HH:mm:ss.SSS} %highlight(%-5level) %yellow(%logger{36}) - %msg%n"
+    file: "%d{HH:mm:ss.SSS} [%thread] [%X{merlin-id}] %-5level %logger{36} - %msg%n"
+  level:
+    ROOT: INFO
+
+---
+
+spring:
+  config.activate.on-profile: local
+
+---
+
+spring:
+  config.activate.on-profile: preprod
+
+---
+
+spring:
+  config.activate.on-profile: prod
+
+

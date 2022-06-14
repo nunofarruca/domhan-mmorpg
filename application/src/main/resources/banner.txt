@@ -1,0 +1,2 @@
+
+${AnsiColor.BRIGHT_BLUE}${spring-boot.formatted-version}: > (spring react prototype) <

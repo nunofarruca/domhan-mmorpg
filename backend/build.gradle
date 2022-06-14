@@ -1,0 +1,5 @@
+apply from: "$rootDir/gradle/build-java-module.gradle"
+
+dependencies {
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: "${springBootVersion}"
+}
