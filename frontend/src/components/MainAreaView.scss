@@ -1,0 +1,28 @@
+.main-area {
+  display: flex;
+  grid-gap: 10px;
+
+  height: 98vh;
+  padding: 1vh;
+
+  &__left {
+    flex: 1;
+
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  &__center {
+    flex: 2;
+
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+
+  &__right {
+    flex: 1;
+
+    border: 1px solid #ccc;
+    border-radius: 20px;
+  }
+}
