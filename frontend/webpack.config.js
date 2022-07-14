@@ -1,12 +1,17 @@
-const { merge } = require('webpack-merge');
+const { mergeWithRules } = require('webpack-merge');
 const commonConfig = require('./webpack/webpack.common.js');
+const prodConfig = require('./webpack/webpack.prod.js');
+const devConfig = require('./webpack/webpack.dev.js');
 
 module.exports = (env, argv) => {
-  const envMode = argv.mode === 'production' ? 'prod' : 'dev';
+  const envConfig = argv.mode === 'production' ? prodConfig : devConfig;
 
-  console.log('\x1b[34m%s\x1b[0m', `Webpack build in mode: ${envMode}`);
-
-  const envConfig = require(`./webpack/webpack.${envMode}.js`);
-  const config = merge(commonConfig, envConfig);
-  return config;
+  return mergeWithRules({
+    module: {
+      rules: {
+        test: 'match',
+        use: 'replace',
+      },
+    },
+  })(commonConfig, envConfig);
 };
