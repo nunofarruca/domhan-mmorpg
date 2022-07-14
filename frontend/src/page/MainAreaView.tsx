@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MainAreaView.scss';
+import LocationView from '../components/LocationView';
 
 class MainAreaView extends Component {
   componentDidMount() {
@@ -13,7 +14,8 @@ class MainAreaView extends Component {
           <p>inventory</p>
         </div>
         <div className="main-area__center">
-          <p>main display action</p>
+          <p>main display action 1</p>
+          <LocationView />
         </div>
         <div className="main-area__right">
           <p>stats</p>

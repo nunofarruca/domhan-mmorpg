@@ -1,5 +1,5 @@
 import './App.scss';
-import MainAreaView from './components/MainAreaView';
+import MainAreaView from './page/MainAreaView';
 
 function App() {
   return (

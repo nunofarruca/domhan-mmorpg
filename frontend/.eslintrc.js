@@ -35,10 +35,17 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-uses-react': 'off',
     'react/jsx-filename-extension': 'off',
+    'react/destructuring-assignment': 'off',
     'object-curly-newline': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/extensions': 'off',
     'comma-dangle': 'off',
-    // 'no-console': 'off',
+    'no-shadow': 'off', // replaced by ts-eslint rule below
+    '@typescript-eslint/no-shadow': 'error',
+    'default-param-last': 'off',
+    'no-param-reassign': [
+      'error',
+      { props: true, ignorePropertyModificationsFor: ['state'] },
+    ],
   },
 };
