@@ -17,10 +17,7 @@ export const playerActionSlice = createSlice({
     endTime: undefined,
   } as PlayerActionState,
   reducers: {
-    startAction: (
-      state: PlayerActionState,
-      action: PayloadAction<ActionType>
-    ) => {
+    startAction: (state: PlayerActionState, action: PayloadAction<ActionType>) => {
       state.status = ActionStatus.RUNNING;
       state.action = action.payload;
       state.endTime = moment().add(10, 'seconds').utc().format();
@@ -36,7 +33,6 @@ export const playerActionSlice = createSlice({
 
 export const { startAction, endAction } = playerActionSlice.actions;
 
-export const currentPlayerActionState = (state: RootState) =>
-  state.playerAction as PlayerActionState;
+export const currentPlayerActionState = (state: RootState) => state.playerAction as PlayerActionState;
 
 export default playerActionSlice.reducer;
